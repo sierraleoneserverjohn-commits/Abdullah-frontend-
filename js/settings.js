@@ -1,1 +1,9 @@
+{
+  "sound": true,
+  "voice": true,
+  "autoSpeak": true,
+  "animations": true,
+  "theme": "dark",
+  "intensity": "high"
+}
 
