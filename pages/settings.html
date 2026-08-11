@@ -1,7 +1,21 @@
 <div class="page-container page-fade">
   <div class="glass-card">
-    <h2 style="font-size:20px; color:var(--text-main); margin-bottom:16px;">Settings ⚙️</h2>
+    <h2 style="font-size:20px; color:var(--text-main); margin-bottom:16px;">Settings & Models ⚙️</h2>
     
+    <!-- API Key Input -->
+    <div style="margin-bottom:16px;">
+      <label style="display:block; font-size:12px; color:var(--text-sub); margin-bottom:6px;">Llama / Groq API Key</label>
+      <input type="password" id="userApiKeyInput" placeholder="Paste your API key here..." style="width:100%; background:rgba(30, 14, 48, 0.8); border:1px solid var(--bg-card-border); border-radius:12px; padding:10px 14px; color:#fff; outline:none;" />
+      <span style="font-size:10px; color:var(--text-sub); margin-top:4px; display:block;">Uses Llama 3.1 8B Instant (6K TPM Free) or selected model.</span>
+    </div>
+
+    <!-- Model Selector (10 Models) -->
+    <div style="margin-bottom:16px;">
+      <label style="display:block; font-size:12px; color:var(--text-sub); margin-bottom:6px;">Select AI Model</label>
+      <select id="modelSelectInput" style="width:100%; background:rgba(30, 14, 48, 0.8); border:1px solid var(--bg-card-border); border-radius:12px; padding:10px 14px; color:#fff; outline:none;">
+      </select>
+    </div>
+
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
       <span>Voice Assistance</span>
       <input type="checkbox" id="settingVoice" checked style="accent-color:var(--primary-pink); width:20px; height:20px;" />
@@ -12,12 +26,8 @@
       <input type="checkbox" id="settingAutoSpeak" checked style="accent-color:var(--primary-pink); width:20px; height:20px;" />
     </div>
 
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-      <span>Glow & Visual Effects</span>
-      <input type="checkbox" id="settingAnimations" checked style="accent-color:var(--primary-pink); width:20px; height:20px;" />
-    </div>
+    <button id="saveSettingsBtn" style="width:100%; padding:12px; border-radius:12px; background:linear-gradient(135deg, var(--primary-pink), var(--neon-purple)); border:none; color:#fff; font-weight:600; cursor:pointer; margin-bottom:10px;">Save Configuration</button>
 
-    <button id="resetDataBtn" style="width:100%; padding:12px; border-radius:12px; background:rgba(255,59,139,0.2); border:1px solid var(--primary-pink); color:#fff; font-weight:600; margin-top:10px; cursor:pointer;">Reset App Local Storage</button>
+    <button id="resetDataBtn" style="width:100%; padding:10px; border-radius:12px; background:rgba(255,59,139,0.15); border:1px solid var(--primary-pink); color:#fff; font-size:12px; cursor:pointer;">Reset App Local Storage</button>
   </div>
 </div>
-
