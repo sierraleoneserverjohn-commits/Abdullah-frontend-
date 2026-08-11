@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Abdullah AI Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Overlay for Sidebars -->
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <!-- Left Sidebar: Sana's Profile & Recent Chats -->
+        <aside id="left-sidebar" class="sidebar left-sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/60" alt="Sana" class="profile-img">
+                <div class="profile-info">
+                    <h3>Sana</h3>
+                    <p>Habibti ❤️</p>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <button class="menu-btn" id="btn-live-voice-menu">
+                    <i class="fa-solid fa-headset"></i> Live Voice Conversation
+                </button>
+            </div>
+            <div class="recent-chats">
+                <h4>Recent Conversations</h4>
+                <ul id="chat-history-list">
+                    <li class="active"><i class="fa-solid fa-thumbtack pin-icon"></i> Today's Chat</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Right Sidebar: Settings & System Status -->
+        <aside id="right-sidebar" class="sidebar right-sidebar">
+            <div class="sidebar-header">
+                <h3>Settings & System</h3>
+            </div>
+            <div class="sidebar-content">
+                <div class="status-card">
+                    <p><strong>Status:</strong> <span id="system-status">Connecting...</span></p>
+                    <p><strong>Tokens Used:</strong> <span id="tokens-count">0</span></p>
+                    <p><strong>Learning Score:</strong> <span id="learning-score">0%</span></p>
+                </div>
+                <div class="settings-group">
+                    <label>Backend URL</label>
+                    <input type="text" id="api-url-input" value="https://abdullah-ai-backend.onrender.com">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Header -->
+        <header class="app-header">
+            <button id="open-left-sidebar" class="icon-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="header-title">
+                <h2>Abdullah AI</h2>
+                <span class="online-indicator">Online</span>
+            </div>
+            <button id="open-right-sidebar" class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="chat-viewport" id="chat-viewport">
+            <div class="message-list" id="message-list">
+                <div class="msg abdullah">
+                    <p>Assalamu Alaikum Habibti! How are you feeling today?</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Action / Type Bar -->
+        <footer class="app-footer">
+            <div class="type-bar">
+                <label for="file-upload" class="icon-btn" title="Attach Document/Image">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <input type="file" id="file-upload" accept="image/*,.pdf,.txt" hidden>
+                </label>
+
+                <input type="text" id="chat-input" placeholder="Type a message as Sana..." autocomplete="off">
+
+                <button id="mic-btn" class="icon-btn" title="Voice to Text">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+
+                <button id="action-btn" class="action-btn live-mode" title="Live Voice Conversation">
+                    <i class="fa-solid fa-circle-dot red-pulse"></i>
+                </button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JS Imports (Modular Order) -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/main.js"></script>
+</body>
+  </html>
 
