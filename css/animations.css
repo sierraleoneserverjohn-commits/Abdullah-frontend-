@@ -1,1 +1,27 @@
+@keyframes breathe {
+    0% { transform: scale(1); box-shadow: 0 0 30px var(--primary-pink); }
+    50% { transform: scale(1.05); box-shadow: 0 0 60px var(--primary-pink); }
+    100% { transform: scale(1); box-shadow: 0 0 30px var(--primary-pink); }
+}
 
+.orb-listening {
+    animation: breathe 1.5s infinite ease-in-out;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.waveform-animate {
+    animation: rotate 4s linear infinite;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-forward;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
