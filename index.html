@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Abdullah AI | Sana</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>Good evening, Sana ❤️</h1>
+            <p>I'm here whenever you need me.</p>
+        </header>
 
+        <main>
+            <div class="ai-orb-container">
+                <div class="waveform" id="waveform"></div>
+                <div class="orb" id="aiOrb"></div>
+            </div>
+
+            <div class="glass-card text-center" style="text-align: center;">
+                <p id="statusText">Tap to talk</p>
+                <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px;">
+                    <button id="micBtn" class="action-btn" style="border-radius: 50%; width: 60px; height: 60px; align-items: center; justify-content: center;">
+                        🎤
+                    </button>
+                    <button id="keyboardBtn" class="action-btn" style="border-radius: 50%; width: 60px; height: 60px; align-items: center; justify-content: center;">
+                        ⌨️
+                    </button>
+                </div>
+            </div>
+
+            <div class="btn-grid">
+                <button class="action-btn" onclick="location.href='pages/chat.html'">
+                    <span>💬 Let's Chat</span>
+                    <small style="color: var(--text-dim)">Talk about anything</small>
+                </button>
+                <button class="action-btn">
+                    <span>💖 Love Notes</span>
+                    <small style="color: var(--text-dim)">Sweet words for you</small>
+                </button>
+                <button class="action-btn">
+                    <span>📚 Teach Me</span>
+                    <small style="color: var(--text-dim)">Learn anything new</small>
+                </button>
+                <button class="action-btn">
+                    <span>🎵 Mood Booster</span>
+                    <small style="color: var(--text-dim)">Cheer you up</small>
+                </button>
+            </div>
+        </main>
+
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-item active">🏠<span>Home</span></a>
+            <a href="pages/chat.html" class="nav-item">💬<span>Chat</span></a>
+            <a href="pages/memory.html" class="nav-item">🧠<span>Memory</span></a>
+            <a href="pages/profile.html" class="nav-item">👤<span>Sana</span></a>
+        </nav>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
