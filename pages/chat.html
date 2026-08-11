@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | Abdullah AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        #chatContainer { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; margin-bottom: 80px; }
+        .msg-user { align-self: flex-end; background: var(--primary-pink); padding: 12px 18px; border-radius: 20px 20px 0 20px; max-width: 80%; }
+        .msg-ai { align-self: flex-start; background: var(--bg-card); border: 1px solid var(--glass-border); padding: 12px 18px; border-radius: 20px 20px 20px 0; max-width: 80%; }
+        .input-area { position: fixed; bottom: 85px; width: 90%; left: 5%; display: flex; gap: 10px; }
+        input { flex: 1; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 25px; padding: 15px; color: white; outline: none; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header"><h2>Chat with Abdullah AI</h2></header>
+        <div id="chatContainer"></div>
+        <div class="input-area">
+            <input type="text" id="chatInput" placeholder="Message Abdullah AI...">
+            <button id="sendBtn" class="action-btn" style="border-radius: 50%; width: 50px; height: 50px;">➔</button>
+        </div>
+        <nav class="nav-bar">
+            <a href="../index.html" class="nav-item">🏠<span>Home</span></a>
+            <a href="chat.html" class="nav-item active">💬<span>Chat</span></a>
+            <a href="memory.html" class="nav-item">🧠<span>Memory</span></a>
+            <a href="profile.html" class="nav-item">👤<span>Sana</span></a>
+        </nav>
+    </div>
+    <script type="module" src="../js/chat.js"></script>
+</body>
+</html>
