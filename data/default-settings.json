@@ -3,5 +3,6 @@
   "voice": true,
   "autoSpeak": true,
   "animations": true,
-  "theme": "romantic-dark"
+  "theme": "dark",
+  "intensity": "high"
 }
