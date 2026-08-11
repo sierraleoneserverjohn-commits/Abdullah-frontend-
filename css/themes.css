@@ -1,1 +1,10 @@
-
+:root {
+    --bg-deep: #050508;
+    --bg-card: rgba(25, 10, 35, 0.6);
+    --primary-pink: #ff4d94;
+    --accent-purple: #9d50bb;
+    --neon-glow: 0 0 15px rgba(255, 77, 148, 0.5);
+    --text-main: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
