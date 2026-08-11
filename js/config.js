@@ -1,13 +1,13 @@
-const CONFIG = {
-    APP_NAME: "Abdullah AI",
-    VERSION: "1.0.0",
-    API_ENDPOINT: "/api/chat", // Placeholder for backend
-    USER_NAME: "Sana",
-    PARTNER_NAME: "Abdullah",
-    DEFAULTS: {
-        voiceEnabled: true,
-        autoSpeak: true
-    }
+const AppConfig = {
+  appName: "Abdullah AI",
+  version: "1.0.0",
+  userTarget: "Sana",
+  apiEndpoint: "/api/chat", // Replace with custom backend endpoint when ready
+  useLocalFallback: true,
+  themeDefaults: {
+    sound: true,
+    voice: true,
+    autoSpeak: true,
+    animations: true
+  }
 };
-
-export default CONFIG;
