@@ -1,51 +1,92 @@
-import { sendMessageToAI } from './ai.js';
+const VoiceSystem = {
+  recognition: null,
+  synthesis: window.speechSynthesis,
+  isListening: false,
 
-const micBtn = document.getElementById('micBtn');
-const statusText = document.getElementById('statusText');
-const orb = document.getElementById('aiOrb');
+  init() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      this.recognition = new SpeechRecognition();
+      this.recognition.continuous = false;
+      this.recognition.interimResults = false;
+      this.recognition.lang = 'en-US';
 
-let recognition;
+      this.recognition.onstart = () => {
+        this.isListening = true;
+        this.updateUI("Listening...", "Speak now, Sana ❤️", true);
+        Animations.setWaveformActive(true);
+      };
 
-if ('webkitSpeechRecognition' in window) {
-    recognition = new webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
+      this.recognition.onresult = async (event) => {
+        const transcript = event.results[0][0].transcript;
+        this.updateUI("Processing...", `"${transcript}"`, false);
+        const reply = await AIService.sendMessage(transcript);
+        this.speak(reply);
+      };
 
-    recognition.onstart = () => {
-        statusText.innerText = "Listening...";
-        orb.classList.add('orb-listening');
-    };
+      this.recognition.onerror = () => {
+        this.stopListening();
+        UI.showToast("Couldn't hear clearly. Try tapping again!");
+      };
 
-    recognition.onresult = async (event) => {
-        const text = event.results[0][0].transcript;
-        statusText.innerText = "Thinking...";
-        const response = await sendMessageToAI(text);
-        speakText(response.reply);
-    };
+      this.recognition.onend = () => {
+        this.isListening = false;
+        Animations.setWaveformActive(false);
+      };
+    }
+  },
 
-    recognition.onerror = () => {
-        statusText.innerText = "Try again, Sana";
-        orb.classList.remove('orb-listening');
-    };
+  toggleListening() {
+    if (!this.recognition) {
+      UI.showToast("Speech Recognition not supported in this browser.");
+      return;
+    }
+    if (this.isListening) {
+      this.stopListening();
+    } else {
+      this.recognition.start();
+    }
+  },
 
-    recognition.onend = () => {
-        orb.classList.remove('orb-listening');
-    };
-}
+  stopListening() {
+    if (this.recognition && this.isListening) {
+      this.recognition.stop();
+      this.isListening = false;
+      this.updateUI("Tap to talk", "I'm listening...", false);
+      Animations.setWaveformActive(false);
+    }
+  },
 
-function speakText(text) {
+  speak(text) {
+    if (!this.synthesis) return;
+    this.synthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.onstart = () => {
-        statusText.innerText = "Abdullah AI speaking...";
-        orb.classList.add('orb-listening');
-    };
-    utterance.onend = () => {
-        statusText.innerText = "Tap to talk";
-        orb.classList.remove('orb-listening');
-    };
-    window.speechSynthesis.speak(utterance);
-}
+    utterance.pitch = 1.1;
+    utterance.rate = 0.95;
 
-micBtn.addEventListener('click', () => {
-    recognition ? recognition.start() : alert("Speech not supported");
-});
+    utterance.onstart = () => {
+      this.updateUI("Abdullah AI speaking...", text, false);
+      Animations.setWaveformActive(true);
+    };
+
+    utterance.onend = () => {
+      this.updateUI("Tap to talk", "I'm listening...", false);
+      Animations.setWaveformActive(false);
+    };
+
+    this.synthesis.speak(utterance);
+  },
+
+  updateUI(title, sub, listening) {
+    const titleEl = document.getElementById('voiceStatusTitle');
+    const subEl = document.getElementById('voiceStatusSub');
+    const micBtn = document.getElementById('micBtn');
+
+    if (titleEl) titleEl.textContent = title;
+    if (subEl) subEl.textContent = sub;
+    if (micBtn) {
+      if (listening) micBtn.classList.add('listening');
+      else micBtn.classList.remove('listening');
+    }
+  }
+};
