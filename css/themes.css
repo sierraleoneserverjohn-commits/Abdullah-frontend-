@@ -1,10 +1,22 @@
-:root {
-    --bg-deep: #050508;
-    --bg-card: rgba(25, 10, 35, 0.6);
-    --primary-pink: #ff4d94;
-    --accent-purple: #9d50bb;
-    --neon-glow: 0 0 15px rgba(255, 77, 148, 0.5);
-    --text-main: #ffffff;
-    --text-dim: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
+/* Dark & Light Theme Override System */
+body[data-theme="dark"] {
+  --bg-dark: #07030d;
+  --text-main: #ffffff;
+}
+
+body[data-theme="light"] {
+  --bg-dark: #f8eaf4;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-card-border: rgba(255, 59, 139, 0.3);
+  --text-main: #2b0836;
+  --text-muted: #5e286d;
+  --text-sub: #7d4d8c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb-ring.breathing,
+  .waveform-bar.active,
+  .mic-btn.listening {
+    animation: none !important;
+  }
 }
