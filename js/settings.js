@@ -1,42 +1,38 @@
 const SettingsModule = {
-  key: "abdullah_ai_settings",
-
-  getSettings() {
-    return JSON.parse(localStorage.getItem(this.key)) || AppConfig.themeDefaults;
-  },
-
-  saveSettings(newSettings) {
-    localStorage.setItem(this.key, JSON.stringify(newSettings));
-  },
-
   init() {
-    const voiceCb = document.getElementById('settingVoice');
-    const autoCb = document.getElementById('settingAutoSpeak');
-    const animCb = document.getElementById('settingAnimations');
+    const keyInput = document.getElementById('userApiKeyInput');
+    const modelSelect = document.getElementById('modelSelectInput');
+    const saveBtn = document.getElementById('saveSettingsBtn');
     const resetBtn = document.getElementById('resetDataBtn');
 
-    const current = this.getSettings();
-    if (voiceCb) voiceCb.checked = current.voice;
-    if (autoCb) autoCb.checked = current.autoSpeak;
-    if (animCb) animCb.checked = current.animations;
+    // Populate model selection options
+    if (modelSelect) {
+      modelSelect.innerHTML = AppConfig.models.map(m => `
+        <option value="${m.id}">${m.name}</option>
+      `).join('');
 
-    if (voiceCb) voiceCb.addEventListener('change', (e) => this.update('voice', e.target.checked));
-    if (autoCb) autoCb.addEventListener('change', (e) => this.update('autoSpeak', e.target.checked));
-    if (animCb) animCb.addEventListener('change', (e) => this.update('animations', e.target.checked));
+      const savedModel = localStorage.getItem("abdullah_ai_model") || AppConfig.defaultModel;
+      modelSelect.value = savedModel;
+    }
+
+    if (keyInput) {
+      keyInput.value = localStorage.getItem("abdullah_ai_user_key") || "";
+    }
+
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        if (keyInput) localStorage.setItem("abdullah_ai_user_key", keyInput.value.trim());
+        if (modelSelect) localStorage.setItem("abdullah_ai_model", modelSelect.value);
+        UI.showToast("Settings and model updated! ❤️");
+      });
+    }
 
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         localStorage.clear();
-        UI.showToast("App data reset!");
+        UI.showToast("App data cleared.");
         setTimeout(() => location.reload(), 1000);
       });
     }
-  },
-
-  update(field, val) {
-    const settings = this.getSettings();
-    settings[field] = val;
-    this.saveSettings(settings);
-    UI.showToast("Setting saved!");
   }
 };
