@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This line locks the zoom and forces mobile viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Abdullah AI for Sana</title>
+  
+  <!-- THIS IS WHAT WAS MISSING: The links to your styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
 <body>
   <div id="app">
     <!-- Starry Background (Behind everything) -->
@@ -26,7 +38,6 @@
 
       <!-- Glowing AI Orb -->
       <div class="ai-orb-container">
-        <div class="audio-waves left-wave"></div>
         <div class="ai-orb-face">
           <div class="ai-eyes">
             <div class="eye"></div>
@@ -34,7 +45,6 @@
           </div>
           <div class="ai-smile"></div>
         </div>
-        <div class="audio-waves right-wave"></div>
       </div>
 
       <p class="signature-tag">Made with 💖 for Sana</p>
@@ -55,34 +65,34 @@
 
       <!-- Helper Grid -->
       <div class="helper-section">
-        <h4 class="helper-title">How can I help you today? 💖</h4>
-        <div class="action-grid">
-          <button class="action-card" id="actionChat">
-             <span class="card-icon">💬</span>
+        <h4 class="helper-title" style="margin-bottom: 12px; font-weight: 500;">How can I help you today? 💖</h4>
+        <div class="action-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;">
+          <button class="action-card" id="actionChat" style="background: rgba(20, 10, 30, 0.6); border: 1px solid rgba(255, 59, 139, 0.2); padding: 15px; border-radius: 16px; display: flex; align-items: center; gap: 10px; color: #fff; text-align: left;">
+             <span class="card-icon" style="font-size: 20px;">💬</span>
              <div class="card-text">
-               <strong>Let's Chat</strong>
-               <span>Talk about anything</span>
+               <strong style="display: block; font-size: 14px;">Let's Chat</strong>
+               <span style="font-size: 11px; color: #9a82b8;">Talk about anything</span>
              </div>
           </button>
-          <button class="action-card" id="actionLove">
-             <span class="card-icon">💌</span>
+          <button class="action-card" id="actionLove" style="background: rgba(20, 10, 30, 0.6); border: 1px solid rgba(255, 59, 139, 0.2); padding: 15px; border-radius: 16px; display: flex; align-items: center; gap: 10px; color: #fff; text-align: left;">
+             <span class="card-icon" style="font-size: 20px;">💌</span>
              <div class="card-text">
-               <strong>Love Notes</strong>
-               <span>Sweet words for you</span>
+               <strong style="display: block; font-size: 14px;">Love Notes</strong>
+               <span style="font-size: 11px; color: #9a82b8;">Sweet words for you</span>
              </div>
           </button>
-          <button class="action-card" id="actionTeach">
-             <span class="card-icon">📚</span>
+          <button class="action-card" id="actionTeach" style="background: rgba(20, 10, 30, 0.6); border: 1px solid rgba(255, 59, 139, 0.2); padding: 15px; border-radius: 16px; display: flex; align-items: center; gap: 10px; color: #fff; text-align: left;">
+             <span class="card-icon" style="font-size: 20px;">📚</span>
              <div class="card-text">
-               <strong>Teach Me</strong>
-               <span>Learn anything new</span>
+               <strong style="display: block; font-size: 14px;">Teach Me</strong>
+               <span style="font-size: 11px; color: #9a82b8;">Learn anything new</span>
              </div>
           </button>
-          <button class="action-card" id="actionMood">
-             <span class="card-icon">🎵</span>
+          <button class="action-card" id="actionMood" style="background: rgba(20, 10, 30, 0.6); border: 1px solid rgba(255, 59, 139, 0.2); padding: 15px; border-radius: 16px; display: flex; align-items: center; gap: 10px; color: #fff; text-align: left;">
+             <span class="card-icon" style="font-size: 20px;">🎵</span>
              <div class="card-text">
-               <strong>Mood Booster</strong>
-               <span>Cheer you up</span>
+               <strong style="display: block; font-size: 14px;">Mood Booster</strong>
+               <span style="font-size: 11px; color: #9a82b8;">Cheer you up</span>
              </div>
           </button>
         </div>
@@ -92,28 +102,36 @@
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-      <button class="nav-item active" id="navHome">
-        <span class="nav-icon">🏠</span>
-        <span class="nav-label">Home</span>
+      <button class="nav-item active" id="navHome" style="background: transparent; border: none; color: #ff3b8b; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="nav-icon" style="font-size: 20px;">🏠</span>
+        <span class="nav-label" style="font-size: 10px;">Home</span>
       </button>
-      <button class="nav-item" id="navChat">
-        <span class="nav-icon">💬</span>
-        <span class="nav-label">Chat</span>
+      <button class="nav-item" id="navChat" style="background: transparent; border: none; color: #9a82b8; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="nav-icon" style="font-size: 20px;">💬</span>
+        <span class="nav-label" style="font-size: 10px;">Chat</span>
       </button>
       
       <!-- Big Center Heart Button -->
-      <div class="nav-center-wrapper">
-        <button class="nav-center-btn" id="navCenterHeart">💖</button>
+      <div class="nav-center-wrapper" style="position: relative; top: -15px;">
+        <button class="nav-center-btn" id="navCenterHeart" style="width: 60px; height: 60px; border-radius: 50%; background: #0a0410; border: 2px solid #ff3b8b; box-shadow: 0 0 15px rgba(255,59,139,0.5); font-size: 24px; display: flex; justify-content: center; align-items: center;">💖</button>
       </div>
 
-      <button class="nav-item" id="navMemory">
-        <span class="nav-icon">🧠</span>
-        <span class="nav-label">Memory</span>
+      <button class="nav-item" id="navMemory" style="background: transparent; border: none; color: #9a82b8; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="nav-icon" style="font-size: 20px;">🧠</span>
+        <span class="nav-label" style="font-size: 10px;">Memory</span>
       </button>
-      <button class="nav-item" id="navProfile">
-        <span class="nav-icon">👤</span>
-        <span class="nav-label">Sana</span>
+      <button class="nav-item" id="navProfile" style="background: transparent; border: none; color: #9a82b8; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="nav-icon" style="font-size: 20px;">👤</span>
+        <span class="nav-label" style="font-size: 10px;">Sana</span>
       </button>
     </nav>
   </div>
+
+  <!-- Scripts linked at the bottom so logic works -->
+  <script src="js/config.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
 </body>
+</html>
