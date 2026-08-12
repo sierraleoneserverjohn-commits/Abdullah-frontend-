@@ -4,143 +4,154 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Abdullah AI for Sana</title>
-  
-  <!-- Strictly isolated CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
   <div id="app">
-    <!-- Dark Space Canvas Background -->
-    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+    <div id="toast" class="toast-container">Notification</div>
 
-    <!-- Top Navigation -->
+    <!-- App Header -->
     <header class="app-header">
-      <button class="icon-btn" id="menuBtn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d0b8e6" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
       </button>
       <div class="header-actions">
-        <button class="icon-btn">👑</button>
-        <button class="icon-btn" style="color: #ff3b8b;">💖</button>
+        <button class="icon-btn" id="crownBtn" aria-label="VIP Status">
+          <svg viewBox="0 0 24 24" fill="#ffc857"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+        </button>
+        <button class="icon-btn" id="topHeartBtn" aria-label="Favorites">
+          <svg viewBox="0 0 24 24" fill="#ff3b8b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </button>
       </div>
     </header>
 
-    <!-- Main Central Layout -->
-    <main class="main-content" id="mainView">
-      
-      <!-- Greeting Section -->
-      <div class="greeting-section">
-        <p class="greeting-title">Good evening,</p>
+    <!-- Dynamic View Screen Container -->
+    <main id="mainView" class="main-content page-fade">
+      <!-- Greeting Header -->
+      <section class="greeting-section">
+        <h2 class="greeting-title">Good evening,</h2>
         <h1 class="sana-name">Sana 💖</h1>
         <p class="greeting-subtitle">I'm here whenever you need me. ✨</p>
-      </div>
+      </section>
 
-      <!-- 3D Glowing Glass Bubble & Audio Waves -->
-      <div class="ai-interaction-area">
-        <div class="audio-waves">
-          <span></span><span></span><span></span><span></span><span></span>
+      <!-- Orb AI Stage -->
+      <section class="orb-container" id="orbContainer">
+        <div class="waveform-bg" id="waveform">
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
+          <div class="waveform-bar"></div><div class="waveform-bar"></div>
         </div>
-        
-        <div class="glass-bubble">
-          <div class="bubble-heart">💖</div>
-          <div class="ai-face">
-             <div class="headphones"></div>
-             <div class="ai-eyes">
-               <div class="eye"></div>
-               <div class="eye"></div>
-             </div>
-             <div class="ai-smile"></div>
+        <div class="orb-ring breathing" id="orbRing"></div>
+        <div class="orb-avatar">
+          <div class="orb-face">
+            <div class="orb-eyes">
+              <div class="orb-eye"></div>
+              <div class="orb-eye"></div>
+            </div>
+            <div class="orb-smile"></div>
           </div>
         </div>
+      </section>
 
-        <div class="audio-waves">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
+      <div class="signature-tag">Made with 💖 for Sana</div>
 
-      <p class="signature-tag">Made with 💖 for Sana</p>
-
-      <!-- Tap to Talk Box -->
-      <div class="control-box">
-        <h3 class="tap-title">Tap to talk</h3>
-        <p class="tap-sub">I'm listening...</p>
-        
-        <div class="mic-controls">
-          <button class="side-btn">✨</button>
-          <button class="mic-btn-large">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3b8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+      <!-- Voice Controller Glass Card -->
+      <section class="glass-card voice-card">
+        <h3 class="voice-status-title" id="voiceStatusTitle">Tap to talk</h3>
+        <p class="voice-status-sub" id="voiceStatusSub">I'm listening...</p>
+        <div class="voice-controls-row">
+          <button class="icon-btn" id="sparkleBtn" aria-label="Magic Sparkle">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 12l7.19 3.37L12 22l2.81-6.63L22 12l-7.19-3.37z"/></svg>
           </button>
-          <button class="side-btn">⌨️</button>
-        </div>
-      </div>
-
-      <!-- Action Cards -->
-      <div class="helper-section">
-        <h4 class="helper-title">How can I help you today? 💖</h4>
-        <div class="action-grid">
-          <button class="action-card">
-             <div class="card-icon-wrapper"><span class="card-icon">💖</span></div>
-             <div class="card-text">
-               <strong>Let's Chat</strong>
-               <span>Talk about anything</span>
-             </div>
+          <button class="mic-btn" id="micBtn" aria-label="Toggle Microphone">
+            <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
           </button>
-          <button class="action-card">
-             <div class="card-icon-wrapper"><span class="card-icon">💌</span></div>
-             <div class="card-text">
-               <strong>Love Notes</strong>
-               <span>Sweet words for you</span>
-             </div>
-          </button>
-          <button class="action-card">
-             <div class="card-icon-wrapper" style="background: rgba(59, 130, 246, 0.2);"><span class="card-icon">📚</span></div>
-             <div class="card-text">
-               <strong>Teach Me</strong>
-               <span>Learn anything new</span>
-             </div>
-          </button>
-          <button class="action-card">
-             <div class="card-icon-wrapper" style="background: rgba(168, 85, 247, 0.2);"><span class="card-icon">🎵</span></div>
-             <div class="card-text">
-               <strong>Mood Booster</strong>
-               <span>Cheer you up</span>
-             </div>
+          <button class="icon-btn" id="keyboardBtn" aria-label="Open Keyboard Chat">
+            <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-3 0h2v2H5v-2zm0-3h2v2H5V8zm11 10H8v-2h8v2zm1-3h-2v-2h2v2zm0-3h-2V8h2v2zm3 6h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
           </button>
         </div>
-      </div>
+      </section>
+
+      <!-- Quick Action Buttons -->
+      <section>
+        <h3 class="section-title">How can I help you today? 💖</h3>
+        <div class="quick-actions-grid">
+          <div class="action-card" id="actionChat">
+            <span class="action-icon">💬</span>
+            <div class="action-info">
+              <h4>Let's Chat</h4>
+              <p>Talk about anything</p>
+            </div>
+          </div>
+          <div class="action-card" id="actionLove">
+            <span class="action-icon">💌</span>
+            <div class="action-info">
+              <h4>Love Notes</h4>
+              <p>Sweet words for you</p>
+            </div>
+          </div>
+          <div class="action-card" id="actionTeach">
+            <span class="action-icon">📚</span>
+            <div class="action-info">
+              <h4>Teach Me</h4>
+              <p>Learn anything new</p>
+            </div>
+          </div>
+          <div class="action-card" id="actionMood">
+            <span class="action-icon">🎵</span>
+            <div class="action-info">
+              <h4>Mood Booster</h4>
+              <p>Cheer you up</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Bottom Navigation -->
+    <!-- Navigation Bar -->
     <nav class="bottom-nav">
-      <button class="nav-item active">
-        <span class="nav-icon">🏠</span>
-        <span class="nav-label">Home</span>
+      <button class="nav-item active" id="navHome">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Home</span>
       </button>
-      <button class="nav-item">
-        <span class="nav-icon">💬</span>
-        <span class="nav-label">Chat</span>
+      <button class="nav-item" id="navChat">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+        <span>Chat</span>
       </button>
-      
-      <!-- Big Center Heart Button -->
-      <div class="nav-center-wrapper">
-        <button class="nav-center-btn">💖</button>
+      <div class="nav-item-center">
+        <button class="center-heart-btn" id="navCenterHeart" aria-label="Express Love">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </button>
       </div>
-
-      <button class="nav-item">
-        <span class="nav-icon">🧠</span>
-        <span class="nav-label">Memory</span>
+      <button class="nav-item" id="navMemory">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.55 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+        <span>Memory</span>
       </button>
-      <button class="nav-item">
-        <span class="nav-icon">👤</span>
-        <span class="nav-label">Sana</span>
+      <button class="nav-item" id="navProfile">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span>Sana</span>
       </button>
     </nav>
   </div>
 
   <!-- Scripts -->
   <script src="js/config.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/animations.js"></script>
   <script src="js/ai.js"></script>
   <script src="js/voice.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/memory.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
+  
