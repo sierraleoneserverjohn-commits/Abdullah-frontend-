@@ -5,45 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Abdullah AI for Sana</title>
   
-  <!-- Link strictly to the external stylesheet -->
+  <!-- Strictly isolated CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="app">
-    <!-- Starry Background -->
+    <!-- Dark Space Canvas Background -->
     <canvas id="particles-canvas" class="particles-canvas"></canvas>
 
-    <!-- Top Header -->
+    <!-- Top Navigation -->
     <header class="app-header">
       <button class="icon-btn" id="menuBtn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d0b8e6" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d0b8e6" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <div class="header-actions">
-        <button class="icon-btn" id="crownBtn">👑</button>
-        <button class="icon-btn" id="topHeartBtn">💖</button>
+        <button class="icon-btn">👑</button>
+        <button class="icon-btn" style="color: #ff3b8b;">💖</button>
       </div>
     </header>
 
-    <!-- MAIN CONTENT AREA -->
+    <!-- Main Central Layout -->
     <main class="main-content" id="mainView">
       
-      <!-- Greeting -->
+      <!-- Greeting Section -->
       <div class="greeting-section">
         <p class="greeting-title">Good evening,</p>
         <h1 class="sana-name">Sana 💖</h1>
         <p class="greeting-subtitle">I'm here whenever you need me. ✨</p>
       </div>
 
-      <!-- Glowing AI Orb -->
-      <div class="ai-orb-container">
-        <div class="ai-orb-ring">
-          <div class="ai-orb-face">
+      <!-- 3D Glowing Glass Bubble & Audio Waves -->
+      <div class="ai-interaction-area">
+        <div class="audio-waves">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        
+        <div class="glass-bubble">
+          <div class="bubble-heart">💖</div>
+          <div class="ai-face">
+             <div class="headphones"></div>
              <div class="ai-eyes">
                <div class="eye"></div>
                <div class="eye"></div>
              </div>
              <div class="ai-smile"></div>
           </div>
+        </div>
+
+        <div class="audio-waves">
+          <span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
 
@@ -55,41 +65,41 @@
         <p class="tap-sub">I'm listening...</p>
         
         <div class="mic-controls">
-          <button class="side-btn" id="sparkleBtn">✨</button>
-          <button class="mic-btn-large" id="micBtn">
+          <button class="side-btn">✨</button>
+          <button class="mic-btn-large">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3b8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
           </button>
-          <button class="side-btn" id="keyboardBtn">⌨️</button>
+          <button class="side-btn">⌨️</button>
         </div>
       </div>
 
-      <!-- Helper Grid -->
+      <!-- Action Cards -->
       <div class="helper-section">
         <h4 class="helper-title">How can I help you today? 💖</h4>
         <div class="action-grid">
-          <button class="action-card" id="actionChat">
-             <span class="card-icon">💬</span>
+          <button class="action-card">
+             <div class="card-icon-wrapper"><span class="card-icon">💖</span></div>
              <div class="card-text">
                <strong>Let's Chat</strong>
                <span>Talk about anything</span>
              </div>
           </button>
-          <button class="action-card" id="actionLove">
-             <span class="card-icon">💌</span>
+          <button class="action-card">
+             <div class="card-icon-wrapper"><span class="card-icon">💌</span></div>
              <div class="card-text">
                <strong>Love Notes</strong>
                <span>Sweet words for you</span>
              </div>
           </button>
-          <button class="action-card" id="actionTeach">
-             <span class="card-icon">📚</span>
+          <button class="action-card">
+             <div class="card-icon-wrapper" style="background: rgba(59, 130, 246, 0.2);"><span class="card-icon">📚</span></div>
              <div class="card-text">
                <strong>Teach Me</strong>
                <span>Learn anything new</span>
              </div>
           </button>
-          <button class="action-card" id="actionMood">
-             <span class="card-icon">🎵</span>
+          <button class="action-card">
+             <div class="card-icon-wrapper" style="background: rgba(168, 85, 247, 0.2);"><span class="card-icon">🎵</span></div>
              <div class="card-text">
                <strong>Mood Booster</strong>
                <span>Cheer you up</span>
@@ -101,25 +111,25 @@
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-      <button class="nav-item active" id="navHome">
+      <button class="nav-item active">
         <span class="nav-icon">🏠</span>
         <span class="nav-label">Home</span>
       </button>
-      <button class="nav-item" id="navChat">
+      <button class="nav-item">
         <span class="nav-icon">💬</span>
         <span class="nav-label">Chat</span>
       </button>
       
       <!-- Big Center Heart Button -->
       <div class="nav-center-wrapper">
-        <button class="nav-center-btn" id="navCenterHeart">💖</button>
+        <button class="nav-center-btn">💖</button>
       </div>
 
-      <button class="nav-item" id="navMemory">
+      <button class="nav-item">
         <span class="nav-icon">🧠</span>
         <span class="nav-label">Memory</span>
       </button>
-      <button class="nav-item" id="navProfile">
+      <button class="nav-item">
         <span class="nav-icon">👤</span>
         <span class="nav-label">Sana</span>
       </button>
