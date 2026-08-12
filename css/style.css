@@ -27,23 +27,16 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
-/* Strict Mobile Screen Lock */
 html, body {
   width: 100%;
   height: 100%;
-  height: 100dvh;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
+  overflow-x: hidden;
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: var(--font-family);
   user-select: none;
-  overscroll-behavior: none;
 }
 
 body {
@@ -54,9 +47,9 @@ body {
 }
 
 #app {
-  width: 100vw;
+  width: 100%;
   max-width: 430px;
-  height: 100dvh;
+  height: 100vh;
   max-height: 932px;
   position: relative;
   display: flex;
@@ -86,6 +79,16 @@ body {
   padding: 16px 20px 8px;
 }
 
+.header-status-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 4px 8px 12px;
+}
+
 .header-actions {
   display: flex;
   gap: 12px;
@@ -99,7 +102,6 @@ body {
   z-index: 5;
   padding: 0 20px 100px;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 .main-content::-webkit-scrollbar {
@@ -109,7 +111,7 @@ body {
 .greeting-section {
   text-align: center;
   margin-top: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .greeting-title {
@@ -141,6 +143,6 @@ body {
   font-size: 13px;
   font-style: italic;
   color: var(--text-muted);
-  margin: 8px 0 14px;
+  margin: 12px 0 18px;
   opacity: 0.85;
-  }
+}
