@@ -146,3 +146,304 @@ body {
   margin: 12px 0 18px;
   opacity: 0.85;
 }
+/* ================= LOADING SCREEN STYLES ================= */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background: radial-gradient(circle at 50% 30%, #1a082b 0%, #07020d 70%, #030106 100%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px 16px 20px;
+  overflow: hidden;
+  touch-action: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Header */
+.loader-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-heart-badge {
+  font-size: 18px;
+  margin-bottom: 6px;
+  animation: pulseHeart 2s infinite ease-in-out;
+}
+
+.loader-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(255, 42, 141, 0.6);
+  margin-bottom: 4px;
+}
+
+.loader-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted, #a692b8);
+  font-weight: 400;
+}
+
+/* Orb & Pedestal Section */
+.loader-orb-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.floating-orb-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatOrb 3.5s ease-in-out infinite;
+}
+
+.glass-orb {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 42, 141, 0.25), rgba(168, 85, 247, 0.1) 60%, rgba(7, 2, 13, 0.95) 100%);
+  border: 2px solid rgba(255, 105, 180, 0.5);
+  box-shadow: 0 0 50px rgba(255, 42, 141, 0.5), inset 0 0 35px rgba(255, 42, 141, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.orb-top-heart {
+  position: absolute;
+  top: 14px;
+  font-size: 16px;
+  filter: drop-shadow(0 0 8px rgba(255, 42, 141, 0.8));
+}
+
+.ai-face {
+  width: 105px;
+  height: 105px;
+  background: #000000;
+  border-radius: 50%;
+  border: 2px solid #ff2a8d;
+  box-shadow: 0 0 25px rgba(255, 42, 141, 0.7), inset 0 0 12px rgba(255, 42, 141, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-eyes {
+  display: flex;
+  gap: 22px;
+}
+
+.eye {
+  width: 14px;
+  height: 9px;
+  background: #ffffff;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.ai-smile {
+  width: 18px;
+  height: 9px;
+  border-bottom: 3px solid #ffffff;
+  border-radius: 0 0 18px 18px;
+}
+
+/* Pedestal Glow */
+.pedestal-glow {
+  position: absolute;
+  bottom: -25px;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.ring-1 {
+  width: 160px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 42, 141, 0.8);
+  box-shadow: 0 0 20px #ff2a8d, inset 0 0 15px #ff2a8d;
+  transform: rotateX(75deg);
+  animation: ringPulse 2s infinite ease-in-out;
+}
+
+.ring-2 {
+  position: absolute;
+  width: 200px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px dashed rgba(168, 85, 247, 0.5);
+  transform: rotateX(75deg);
+}
+
+/* Progress Section */
+.loader-progress-section {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.status-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.highlight-pink {
+  color: #ff2a8d;
+}
+
+.status-subtext {
+  font-size: 12.5px;
+  color: var(--text-muted, #a692b8);
+  margin-bottom: 14px;
+  min-height: 18px;
+}
+
+.progress-bar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 42, 141, 0.3);
+  border-radius: 20px;
+  padding: 4px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255, 42, 141, 0.15);
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #aa145d, #ff2a8d, #ff7eb3);
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ff2a8d;
+  transition: width 0.1s linear;
+}
+
+.progress-percentage {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0 10px;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Features Grid/Row */
+.loader-features-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 12px 8px;
+  backdrop-filter: blur(12px);
+}
+
+.feature-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.feature-box span {
+  font-size: 10px;
+  color: #d0b8e6;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Signature */
+.loader-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.signature-script {
+  font-family: 'Brush Script MT', cursive, sans-serif;
+  font-size: 22px;
+  background: linear-gradient(90deg, #ffb6c1, #ff2a8d);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.android-home-indicator {
+  width: 120px;
+  height: 4px;
+  background: #ff2a8d;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+/* Keyframe Animations */
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 0.7; transform: rotateX(75deg) scale(1); }
+  50% { opacity: 1; transform: rotateX(75deg) scale(1.05); }
+}
+
