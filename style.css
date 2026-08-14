@@ -5,13 +5,22 @@
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-body {
-  background-color: #1e1e2e;
-  color: #ffffff;
-  height: 100vh;
+/* APP-LIKE FULLSCREEN FIX */
+html, body {
+  height: 100dvh;
   width: 100vw;
   overflow: hidden;
+  background-color: #1e1e2e;
+  color: #ffffff;
+  position: fixed;
+  inset: 0;
+}
+
+.app-container {
   display: flex;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 /* SIDEBAR STYLES */
@@ -24,6 +33,7 @@ body {
   justify-content: space-between;
   padding: 20px;
   flex-shrink: 0;
+  height: 100%;
 }
 
 .user-profile {
@@ -66,6 +76,7 @@ body {
   background-color: #4f46e5;
 }
 
+/* LIVE VOICE ACTIVE ANIMATION */
 .btn-live-sidebar.active {
   background-color: rgba(239, 68, 68, 0.2);
   color: #f87171;
@@ -75,7 +86,7 @@ body {
 
 @keyframes pulse {
   0% { opacity: 1; }
-  50% { opacity: 0.6; }
+  50% { opacity: 0.5; }
   100% { opacity: 1; }
 }
 
@@ -143,6 +154,10 @@ body {
   gap: 4px;
 }
 
+.status-standby {
+  color: #6c7086;
+}
+
 .dot {
   width: 6px;
   height: 6px;
@@ -155,7 +170,9 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  background-color: #1e1e2e;
 }
 
 .header {
@@ -200,7 +217,7 @@ body {
   border: 1px solid #45475a;
 }
 
-/* CHAT AREA */
+/* CHAT AREA (SCROLLABLE) */
 .chat-area {
   flex: 1;
   overflow-y: auto;
@@ -241,11 +258,12 @@ body {
   border: none;
 }
 
-/* TYPING BAR */
+/* FIXED TYPING BAR CONTAINER */
 .typing-container {
-  padding: 20px 24px;
+  padding: 16px 24px;
   border-top: 1px solid rgba(49, 50, 68, 0.5);
   flex-shrink: 0;
+  background-color: #1e1e2e;
 }
 
 .typing-bar {
@@ -265,8 +283,8 @@ body {
   background: transparent;
   border: none;
   color: #a6adc8;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
   cursor: pointer;
   display: flex;
@@ -303,8 +321,8 @@ body {
   background-color: #45475a;
   color: white;
   border: none;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
   cursor: pointer;
   display: flex;
@@ -321,4 +339,4 @@ body {
 
 .btn-action.send-mode:hover {
   background-color: #4f46e5;
-  }
+}
