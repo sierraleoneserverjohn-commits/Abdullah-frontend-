@@ -4,19 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Abdullah AI for Sana</title>
-
-  <!-- Modular CSS Imports -->
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/orb.css" />
-  <link rel="stylesheet" href="css/voice-card.css" />
-  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 
   <div id="app">
-    <!-- Header Component -->
+    <!-- Header -->
     <header class="app-header">
       <button class="icon-btn" id="menuBtn" aria-label="Menu">
         <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
@@ -27,14 +20,14 @@
       </button>
     </header>
 
-    <!-- Main View Viewport -->
+    <!-- Main Viewpoint -->
     <main class="main-content">
       <section class="greeting">
         <p class="greeting-sub">Good Evening,</p>
-        <h1 class="greeting-title">Sana 💖</h1>
+        <h1 class="greeting-title">Sana <span class="heart">💖</span></h1>
       </section>
 
-      <!-- Orb Component -->
+      <!-- Orb Section -->
       <section class="orb-container">
         <div class="orb" id="aiOrb">
           <div class="orb-eyes">
@@ -45,7 +38,7 @@
         </div>
       </section>
 
-      <!-- Voice Control Component -->
+      <!-- Voice Control Box -->
       <section class="voice-card">
         <h3 id="voiceStatusTitle">Tap to talk</h3>
         <p id="voiceStatusSub">I'm listening...</p>
@@ -57,7 +50,7 @@
       </section>
     </main>
 
-    <!-- Bottom Nav Component -->
+    <!-- Bottom Navigation -->
     <nav class="bottom-nav">
       <button class="nav-item active" data-tab="home">Home</button>
       <button class="nav-item" data-tab="chat">Chat</button>
@@ -65,8 +58,6 @@
     </nav>
   </div>
 
-  <!-- Entry Point JavaScript Module -->
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>
-    
