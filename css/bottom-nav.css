@@ -1,1 +1,44 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 430px;
+  height: 70px;
+  background: rgba(12, 4, 24, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.nav-item svg { width: 22px; height: 22px; fill: var(--text-muted); }
+.nav-item.active { color: var(--pink-neon); }
+.nav-item.active svg { fill: var(--pink-neon); }
+
+.center-heart-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2a8d, #b522ff);
+  border: 3px solid #0a0212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px var(--pink-neon);
+  cursor: pointer;
+  margin-top: -24px;
+}
 
