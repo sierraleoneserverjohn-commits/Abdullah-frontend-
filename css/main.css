@@ -1,1 +1,49 @@
+:root {
+  --bg-dark: #0a0212;
+  --pink-neon: #ff2a8d;
+  --purple-glow: #8e00ff;
+  --text-white: #ffffff;
+  --text-muted: #cbb8e3;
+  --border-pink: rgba(255, 42, 141, 0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#heartCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.main-content {
+  flex: 1;
+  padding: 16px 20px 100px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.greeting-sub { color: var(--text-muted); font-size: 0.95rem; }
+.greeting-title { font-size: 2.2rem; font-weight: 800; }
+.made-for-tag { text-align: center; font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
 
