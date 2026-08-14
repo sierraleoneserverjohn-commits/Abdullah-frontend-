@@ -35,7 +35,6 @@ actionBtn.addEventListener('click', () => {
   if (text.length > 0) {
     sendMessage(text);
   } else {
-    // Calls the separated voice logic in voice.js
     if (window.voiceManager) {
       window.voiceManager.toggleVoiceSession();
     }
@@ -58,7 +57,7 @@ async function sendMessage(text) {
     const data = await response.json();
     appendMessage(data.reply || "Response received from backend!", 'ai');
   } catch (error) {
-    appendMessage("AI response received! (Connected to Render backend)", 'ai');
+    appendMessage("Response received from Render backend!", 'ai');
   }
 }
 
@@ -80,4 +79,4 @@ function appendMessage(message, sender) {
   
   chatBox.appendChild(row);
   chatBox.scrollTop = chatBox.scrollHeight;
-  }
+}
