@@ -1,0 +1,244 @@
+/* ==========================================================================
+   1. VARIABLES & RESETS
+   ========================================================================== */
+:root {
+  --bg-main: #0a0314;
+  --bg-card: rgba(28, 11, 48, 0.75);
+  --pink-neon: #ff2a8d;
+  --purple-glow: #9d00ff;
+  --text-main: #ffffff;
+  --text-sub: #c8b3e6;
+  --border-card: rgba(255, 42, 141, 0.3);
+  --radius-card: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-main);
+  background: radial-gradient(circle at top, #1c0836 0%, #0a0314 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--bg-main);
+}
+
+/* ==========================================================================
+   2. HEADER
+   ========================================================================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(10, 3, 20, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-main);
+}
+
+/* ==========================================================================
+   3. MAIN CONTENT AREA
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  padding-bottom: 90px;
+}
+
+.greeting {
+  margin-top: 10px;
+}
+
+.greeting-sub {
+  color: var(--text-sub);
+  font-size: 1rem;
+}
+
+.greeting-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   4. ORB ANIMATION
+   ========================================================================== */
+.orb-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff2a8d, #3b0022);
+  box-shadow: 0 0 50px var(--pink-neon), 0 0 90px var(--purple-glow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: float 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.orb.listening {
+  box-shadow: 0 0 70px var(--pink-neon), 0 0 130px #ffffff;
+  transform: scale(1.08);
+}
+
+.orb-eyes {
+  display: flex;
+  gap: 26px;
+}
+
+.orb-eyes .eye {
+  width: 16px;
+  height: 9px;
+  background: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+
+.orb-smile {
+  width: 20px;
+  height: 10px;
+  border-bottom: 3px solid #ffffff;
+  border-radius: 0 0 10px 10px;
+  margin-top: 10px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ==========================================================================
+   5. VOICE CARD
+   ========================================================================== */
+.voice-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.voice-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.voice-card p {
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.voice-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.mic-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-neon), var(--purple-glow));
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 42, 141, 0.4);
+}
+
+.mic-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: #ffffff;
+}
+
+/* ==========================================================================
+   6. BOTTOM NAVIGATION
+   ========================================================================== */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(15, 5, 30, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: var(--pink-neon);
+  background: rgba(255, 42, 141, 0.1);
+                                                            }
+  
