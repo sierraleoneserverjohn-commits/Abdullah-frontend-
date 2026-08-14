@@ -4,31 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Abdullah AI for Sana</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <!-- Fullscreen Special Animation Canvas -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Slide-Out Sidebar Drawer -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Abdullah AI 💖</h2>
+      <button id="closeSidebarBtn" class="close-btn">&times;</button>
+    </div>
+    <ul class="sidebar-menu">
+      <li class="menu-item active" data-target="home">✨ Home Stage</li>
+      <li class="menu-item" data-target="chat">💬 Chat Room</li>
+      <li class="menu-item" data-target="sana">👑 Dedicated for Sana</li>
+    </ul>
+    <div class="sidebar-footer">
+      <p>Made with endless love for Sana 💖</p>
+    </div>
+  </aside>
 
   <div id="app">
     <!-- Header -->
     <header class="app-header">
-      <button class="icon-btn" id="menuBtn" aria-label="Menu">
+      <button class="icon-btn" id="menuBtn" aria-label="Open Sidebar Menu">
         <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
       </button>
       <span class="brand-title">Abdullah AI</span>
-      <button class="icon-btn" id="favBtn" aria-label="Favorites">
+      <button class="icon-btn" id="topHeartBtn" aria-label="Favorites">
         <svg viewBox="0 0 24 24" fill="#ff3b8b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       </button>
     </header>
 
-    <!-- Main Viewpoint -->
+    <!-- Main Content Stage -->
     <main class="main-content">
+      <!-- Greeting -->
       <section class="greeting">
         <p class="greeting-sub">Good Evening,</p>
-        <h1 class="greeting-title">Sana <span class="heart">💖</span></h1>
+        <h1 class="greeting-title">Sana <span class="heart-emoji">💖</span></h1>
       </section>
 
-      <!-- Orb Section -->
+      <!-- Orb AI Stage with Audio Waveform BG -->
       <section class="orb-container">
+        <div class="waveform-bg">
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+        </div>
+
+        <div class="orb-ring"></div>
         <div class="orb" id="aiOrb">
           <div class="orb-eyes">
             <div class="eye left"></div>
@@ -38,26 +67,91 @@
         </div>
       </section>
 
-      <!-- Voice Control Box -->
-      <section class="voice-card">
+      <p class="made-for-tag">Made with 💖 for Sana</p>
+
+      <!-- Interactive Voice Glass Card -->
+      <section class="glass-card voice-card">
         <h3 id="voiceStatusTitle">Tap to talk</h3>
         <p id="voiceStatusSub">I'm listening...</p>
-        <div class="voice-actions">
-          <button class="mic-btn" id="micBtn" aria-label="Microphone">
+        <div class="voice-controls-row">
+          <button class="icon-btn action-circle" id="sparkleBtn" aria-label="Sparkles">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 12l7.19 3.37L12 22l2.81-6.63L22 12l-7.19-3.37z"/></svg>
+          </button>
+          
+          <button class="mic-btn" id="micBtn" aria-label="Toggle Microphone">
             <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
           </button>
+
+          <button class="icon-btn action-circle" id="keyboardBtn" aria-label="Open Keyboard">
+            <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-3 0h2v2H5v-2zm0-3h2v2H5V8zm11 10H8v-2h8v2zm1-3h-2v-2h2v2zm0-3h-2V8h2v2zm3 6h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Quick Action Cards Grid -->
+      <section class="quick-actions-section">
+        <h3 class="section-title">How can I help you today? 💖</h3>
+        <div class="quick-actions-grid">
+          <div class="action-card" id="cardChat">
+            <span class="action-icon">💬</span>
+            <div class="action-info">
+              <h4>Let's Chat</h4>
+              <p>Talk about anything</p>
+            </div>
+          </div>
+          <div class="action-card" id="cardLove">
+            <span class="action-icon">💌</span>
+            <div class="action-info">
+              <h4>Love Notes</h4>
+              <p>Sweet words for you</p>
+            </div>
+          </div>
+          <div class="action-card" id="cardTeach">
+            <span class="action-icon">📚</span>
+            <div class="action-info">
+              <h4>Teach Me</h4>
+              <p>Learn anything new</p>
+            </div>
+          </div>
+          <div class="action-card" id="cardMood">
+            <span class="action-icon">🎵</span>
+            <div class="action-info">
+              <h4>Mood Booster</h4>
+              <p>Cheer you up</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation Bar (No Memory!) -->
     <nav class="bottom-nav">
-      <button class="nav-item active" data-tab="home">Home</button>
-      <button class="nav-item" data-tab="chat">Chat</button>
-      <button class="nav-item" data-tab="memory">Memory</button>
+      <button class="nav-item active" id="navHome" data-tab="home">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Home</span>
+      </button>
+
+      <button class="nav-item" id="navChat" data-tab="chat">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span>Chat</span>
+      </button>
+
+      <!-- Glowing Center Heart Button -->
+      <div class="nav-center-wrapper">
+        <button class="center-heart-btn" id="centerHeartBtn" aria-label="Magic Love Animation">
+          <svg viewBox="0 0 24 24" fill="#ffffff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </button>
+      </div>
+
+      <button class="nav-item" id="navSana" data-tab="sana">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span>Sana</span>
+      </button>
     </nav>
   </div>
 
-  <script type="module" src="./js/app.js"></script>
+  <!-- Modular Scripts -->
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
+  
