@@ -1,0 +1,51 @@
+.orb-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.orb {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff2a8d, #000);
+  box-shadow: 0 0 40px var(--pink-neon), 0 0 80px var(--purple-glow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orb.listening {
+  box-shadow: 0 0 60px var(--pink-neon), 0 0 120px #ffffff;
+  transform: scale(1.08);
+}
+
+.orb-eyes {
+  display: flex;
+  gap: 24px;
+}
+
+.orb-eyes .eye {
+  width: 14px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+
+.orb-smile {
+  width: 18px;
+  height: 9px;
+  border-bottom: 3px solid #ffffff;
+  border-radius: 0 0 10px 10px;
+  margin-top: 8px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
