@@ -101,3 +101,36 @@ function appendMessage(message, sender) {
   chatBox.appendChild(row);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
+async function sendMessage(text) {
+  appendMessage(text, 'user');
+  chatInput.value = '';
+
+  try {
+    const response = await fetch(`${backendUrl}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    const data = await response.json();
+
+    if (data.status === 'success') {
+      appendMessage(data.reply, 'ai');
+      
+      // Update UI tracker
+      console.log(`Routed through ${data.providerName} in ${data.latency}`);
+      const trackerStatus = document.getElementById('gemini-status');
+      if (trackerStatus) {
+        trackerStatus.textContent = `${data.providerName} (${data.latency})`;
+        trackerStatus.className = 'status-active';
+      }
+    } else {
+      appendMessage("Error: " + data.reply, 'ai');
+    }
+
+  } catch (error) {
+    console.error("Network Error:", error);
+    appendMessage("Failed to reach server backend.", 'ai');
+  }
+}
+
