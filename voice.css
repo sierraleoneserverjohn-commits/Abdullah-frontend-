@@ -19,7 +19,6 @@
   background-color: #4f46e5;
 }
 
-/* LIVE VOICE ACTIVE STATE */
 .btn-live-sidebar.active {
   background-color: rgba(239, 68, 68, 0.2);
   color: #f87171;
