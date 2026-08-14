@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdullah AI</title>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      
+      <!-- User Profile (Set your GitHub image URL here) -->
+      <div class="user-profile">
+        <img src="https://github.com/github.png" alt="Abdullah Profile" class="user-avatar" id="user-img" />
+        <span class="user-name">Abdullah</span>
+      </div>
+
+      <!-- Live Voice Button in Sidebar -->
+      <button class="btn-live-sidebar" id="sidebar-live-btn">
+        <i class="fa-solid fa-phone"></i>
+        <span id="live-btn-text">Start Live Voice</span>
+      </button>
+
+      <!-- Recent Chats -->
+      <div class="recent-section">
+        <h3 class="recent-title">Recent Chats</h3>
+        <button class="recent-item">
+          <i class="fa-regular fa-message"></i>
+          <span>Groq Llama 3.3 Setup</span>
+        </button>
+        <button class="recent-item">
+          <i class="fa-regular fa-message"></i>
+          <span>Gemini Live API Voice</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Real-Time API Tracker -->
+    <div class="api-tracker">
+      <div class="api-tracker-header">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Real-Time API Tracking</span>
+      </div>
+      <div class="api-status-row">
+        <span>Groq (Llama 3.3):</span>
+        <span class="status-active"><span class="dot"></span> 12ms</span>
+      </div>
+      <div class="api-status-row">
+        <span>Gemini Live:</span>
+        <span id="gemini-status" style="color: #6c7086;">Standby</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN SCREEN -->
+  <main class="main-screen">
+    
+    <!-- Header -->
+    <header class="header">
+      <div class="ai-brand">
+        <div class="ai-avatar">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <span class="ai-title">Abdullah AI</span>
+      </div>
+      <div class="badge">Powered by Groq & Gemini</div>
+    </header>
+
+    <!-- Scrollable Chat Area -->
+    <section class="chat-area" id="chat-box">
+      <div class="message-row ai">
+        <div class="ai-avatar">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="message-bubble">
+          Hello bro! I'm ready. My backend is hooked to <b>https://abdullah-ai-backend.onrender.com</b>. You can upload documents, type messages, or start a live voice session anytime!
+        </div>
+      </div>
+    </section>
+
+    <!-- Fixed Typing Bar -->
+    <div class="typing-container">
+      <div class="typing-bar">
+        
+        <!-- Document Plus Button -->
+        <button class="btn-icon" id="plus-btn" title="Add Document">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <input type="file" id="file-input" hidden />
+
+        <!-- Input Area -->
+        <textarea id="chat-input" rows="1" placeholder="Type a message or attach a document..."></textarea>
+
+        <!-- Dynamic Action Button (Mic -> Send) -->
+        <button class="btn-action" id="action-btn">
+          <i class="fa-solid fa-microphone" id="action-icon"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
