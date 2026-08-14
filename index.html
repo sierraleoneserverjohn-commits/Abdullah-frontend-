@@ -10,16 +10,23 @@
 </head>
 <body>
 
+  <!-- Backdrop overlay when mobile sidebar opens -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <div class="app-container">
     
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <!-- SIDEBAR (SLIDES OUT ON MOBILE) -->
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-top">
         
         <!-- User Profile -->
         <div class="user-profile">
           <img src="https://github.com/github.png" alt="Abdullah Profile" class="user-avatar" />
           <span class="user-name">Abdullah</span>
+          <!-- Close button for mobile -->
+          <button class="close-sidebar-btn" id="close-sidebar-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
 
         <!-- Live Voice Button -->
@@ -59,39 +66,40 @@
       </div>
     </aside>
 
-    <!-- MAIN SCREEN -->
+    <!-- MAIN SCREEN (100% WIDTH ON MOBILE) -->
     <main class="main-screen">
       
-      <!-- Header -->
+      <!-- Header with Mobile Menu Button -->
       <header class="header">
-        <div class="ai-brand">
-          <div class="ai-avatar">
-            <i class="fa-solid fa-bolt"></i>
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="ai-brand">
+            <div class="ai-avatar">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <span class="ai-title">Abdullah AI</span>
           </div>
-          <span class="ai-title">Abdullah AI</span>
         </div>
-        <div class="badge">Powered by Groq & Gemini</div>
+        <div class="badge">Groq & Gemini</div>
       </header>
 
-      <!-- Scrollable Chat Area (Demo Message Removed) -->
+      <!-- Scrollable Chat Area -->
       <section class="chat-area" id="chat-box">
-        <!-- Messages will render dynamically here -->
+        <!-- Dynamic Messages Render Here -->
       </section>
 
       <!-- Fixed Typing Bar -->
       <div class="typing-container">
         <div class="typing-bar">
-          
-          <!-- Document Plus Button -->
           <button class="btn-icon" id="plus-btn" title="Add Document">
             <i class="fa-solid fa-plus"></i>
           </button>
           <input type="file" id="file-input" hidden />
 
-          <!-- Input Area -->
-          <textarea id="chat-input" rows="1" placeholder="Type a message or attach a document..."></textarea>
+          <textarea id="chat-input" rows="1" placeholder="Type a message..."></textarea>
 
-          <!-- Dynamic Action Button (Mic -> Send) -->
           <button class="btn-action" id="action-btn">
             <i class="fa-solid fa-microphone" id="action-icon"></i>
           </button>
@@ -101,9 +109,7 @@
     </main>
   </div>
 
-  <!-- SEPARATED SCRIPTS -->
   <script src="voice.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
-            
