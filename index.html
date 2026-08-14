@@ -6,6 +6,7 @@
   <title>Abdullah AI</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="voice.css" />
 </head>
 <body>
 
@@ -21,7 +22,7 @@
           <span class="user-name">Abdullah</span>
         </div>
 
-        <!-- Live Voice Button (Handled by voice.js) -->
+        <!-- Live Voice Button -->
         <button class="btn-live-sidebar" id="voice-trigger-btn">
           <i class="fa-solid fa-phone" id="voice-icon"></i>
           <span id="voice-status-text">Start Live Voice</span>
@@ -72,16 +73,9 @@
         <div class="badge">Powered by Groq & Gemini</div>
       </header>
 
-      <!-- Scrollable Chat Area -->
+      <!-- Scrollable Chat Area (Demo Message Removed) -->
       <section class="chat-area" id="chat-box">
-        <div class="message-row ai">
-          <div class="ai-avatar">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <div class="message-bubble">
-            Hello bro! I'm ready. My backend is hooked to <b>https://abdullah-ai-backend.onrender.com</b>. You can upload documents, type messages, or start a live voice session anytime!
-          </div>
-        </div>
+        <!-- Messages will render dynamically here -->
       </section>
 
       <!-- Fixed Typing Bar -->
@@ -112,3 +106,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+            
